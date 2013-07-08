@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="articlEnhancer : Enrich fulltext and abstract view of articles with data from across the web." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>articlEnhancer</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/waltherg/articlEnhancer">View on GitHub</a>
+
+          <h1 id="project_title">articlEnhancer</h1>
+          <h2 id="project_tagline">Enrich fulltext and abstract view of articles with data from across the web.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/waltherg/articlEnhancer/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/waltherg/articlEnhancer/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="articlenhancer" class="anchor" href="#articlenhancer"><span class="octicon octicon-link"></span></a>articlEnhancer</h3>
+
+<p>This project aims to enrich the fulltext and abstract view of articles on publishers' websites with
+article-level, relevant information for the reader.
+In its current form, this plugin provides one-click access to the <a href="http://www.pubpeer.com">PubPeer page</a> 
+of the currently viewed article and alerts visually the reader to the existence of PubPeer comments.</p>
+
+<p>At present this plugin works in Google Chrome and supports the following journals: 
+PLoS journals, Cell, and eLife.</p>
+
+<p>Future releases will aim to expand both the range of supported journals and browsers.</p>
+
+<h3>
+<a name="how-does-articlenhancer-work" class="anchor" href="#how-does-articlenhancer-work"><span class="octicon octicon-link"></span></a>How does articlEnhancer work?</h3>
+
+<p>For supported journals, articleEnhancer fetches the DOI of the currently viewed article and retrieves
+the address of the relevant <a href="http://www.pubpeer.com">PubPeer page</a>.</p>
+
+<p>The title of all supported articles is then rendered clickable by articlEnhancer to offer one-click access to the article's PubPeer page -- clickable article titles are underlined by articlEnhancer.</p>
+
+<p>As a reader you want to be notified quickly of the existence of comments on PubPeer.
+You can check the availability of PubPeer comments by hovering your mouse pointer over the
+article title: If articlEnhancer finds relevant comments on PubPeer, the background color will turn green,
+and red if no comments are found.</p>
+
+<h3>
+<a name="installing-articlenhancer" class="anchor" href="#installing-articlenhancer"><span class="octicon octicon-link"></span></a>Installing articlEnhancer</h3>
+
+<p>Soon this extension should be available through the Chrome Web Store.</p>
+
+<p>Until then, <a href="https://github.com/waltherg/articlEnhancer/archive/master.zip">download the source code</a> or
+clone into the git repository
+    $ git clone <a href="mailto:git@github.com">git@github.com</a>:waltherg/articlEnhancer.git</p>
+
+<p>Then follow <a href="https://developer.chrome.com/extensions/getstarted.html#unpacked">these instructions</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">articlEnhancer maintained by <a href="https://github.com/waltherg">waltherg</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
