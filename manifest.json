@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+
+    "name": "articlEnhancer",
+    "description": "Enrich fulltext and abstract view of articles with data from across the web",
+    "version": "0.0.1",
+
+    "content_scripts": [
+        {
+        "matches": ["http://*/*"],
+        "js": ["jquery.js", "pubpeer_fetcher.js"],
+        "run_at": "document_end"
+        }
+    ],
+	
+    "icons": {"16": "glyphicons_064_lightbulb.png",
+              "48": "glyphicons_064_lightbulb.png",
+              "128": "glyphicons_064_lightbulb.png"}
+}
