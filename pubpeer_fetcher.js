@@ -51,6 +51,24 @@ console.log("doi: "+doi);
 
 // get title element
 if(doi){
+	title = get_title_element(hostname);
+	console.log("title element received from get_title_element: "+title);
+}
+
+// if doi and title element found, search for PubPeer content and alter title element
+if(title){
+	var original = $(title).css("background");
+	$(title).hover(
+	function(){
+		$(this).css("background", "#ffe9e9");
+	},
+	function(){
+		$(this).css("background", original);
+	});
+			
+	$(title).css("cursor", "pointer");
+	$(title).css("text-decoration","underline");
+
     var address = "http://api.pubpeer.com/v1/publications/"+doi+"?idType=doi&devkey=hack4ac";
     $.ajax(address
           ).done(function(data) {
