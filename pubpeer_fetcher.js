@@ -94,17 +94,9 @@ if(doi || pmid || arxiv){
 
 // if doi and title element found, search for PubPeer content and alter title element
 if(title){
-	var original = $(title).css("background");
-	$(title).hover(
-	function(){
-		$(this).css("background", "#ffe9e9");
-	},
-	function(){
-		$(this).css("background", original);
-	});
+	$(title).css("background", "#355f78");
 			
 	$(title).css("cursor", "pointer");
-	$(title).css("text-decoration","underline");
 
 	var address = null;
 	if(doi){
@@ -122,33 +114,15 @@ if(title){
               var json = $.parseJSON(data);
 
 			if(json.total_comments > 0){
-				title.style.fontWeight = "bold";
-				title.style.color = "#3B5998";
-				var original = $(title).css("background-color");
-				$(title).hover(
-				function(){
-					$(this).css("background-color", "#e5ffe3");
-				},
-				function(){
-					$(this).css("background-color", original);
-				});
+				title.style.color = "#ff9e29";
 			}
 			else{
-				var original = $(title).css("background");
-				$(title).hover(
-				function(){
-					$(this).css("background", "#ffe9e9");
-				},
-				function(){
-					$(this).css("background", original);
-				});
+				title.style.color = "#fff";
 			}
 			
-			$(title).css("cursor", "pointer");
 			$(title).click(function(){
 					window.open(json.url, '_blank');
 			});
-			$(title).css("text-decoration","underline");
 
            });
 }
