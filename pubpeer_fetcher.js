@@ -30,7 +30,13 @@ function get_title_element(hostname){
 		}
 	}
 	else if (hostname.indexOf("ncbi.nlm.nih.gov") != -1){
-		title = document.getElementsByTagName('h1')[1];
+		var h1 = document.getElementsByTagName('h1');
+		for(var i=0; i<h1.length; i++){
+				if(h1[i].className == "content-title"){
+						console.log(h1[i]);
+						title = h1[i];				
+				}
+		}
 	}
 	else if (hostname.indexOf("arxiv.org") != -1) {
 		var h1 = document.getElementsByTagName('h1');
