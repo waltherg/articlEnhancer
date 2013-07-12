@@ -95,7 +95,12 @@ if(doi || pmid || arxiv){
 // if doi and title element found, search for PubPeer content and alter title element
 if(title){
 	$(title).css("background", "#355f78");
-			
+	title.style.paddingLeft = '6px';
+	title.style.paddingTop = '4px';
+	title.style.paddingRight = '6px';
+	title.style.paddingBottom = '4px';
+	title.style.border = "thick dashed #000";
+	title.style.color = "#fff";
 	$(title).css("cursor", "pointer");
 
 	var address = null;
@@ -111,13 +116,13 @@ if(title){
 	console.log("Address for PubPeer query: "+address);
     $.ajax(address
           ).done(function(data) {
-              var json = $.parseJSON(data);
-
+			  var json = $.parseJSON(data);
+			console.log("json.total_comments: "+json.total_comments);
 			if(json.total_comments > 0){
-				title.style.color = "#ff9e29";
+				title.style.border = "thick solid #ff9e29";
 			}
 			else{
-				title.style.color = "#fff";
+				title.style.border = "thick solid #b5b5b5";
 			}
 			
 			$(title).click(function(){
