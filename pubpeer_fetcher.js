@@ -55,6 +55,20 @@ function get_title_element(hostname){
 	return title;
 }
 
+var journals = {
+        "http://www.plosone.org": "plos",
+        "http://www.plosbiology.org": "plos",
+        "http://www.plosmedicine.org": "plos",
+        "http://www.plosgenetics.org": "plos",
+        "http://www.ploscompbiol.org": "plos",
+        "http://www.plospathogens.org": "plos",
+        "http://www.plosntds.org": "plos"
+};
+
+var titleInJournal = {
+        "plos": "title = document.getElementsByTagName('h1')[0];"
+};
+
 var doi = null;
 var pmid = null;
 var arxvi = null;
@@ -90,9 +104,14 @@ if(!doi && !pmid){
 	console.log("arxiv: "+arxiv);
 }
 
+
 // get title element
 if(doi || pmid || arxiv){
-	title = get_title_element(hostname);
+	var journal = journals[hostname];
+	console.log(JSON.stringify(journals));
+	console.log("journal detected: " + journal);
+	title = eval(titleInJournal[journal]);
+
 	console.log("Title element received from get_title_element: "+title);
 	console.log("Value of title element received: "+title.innerHTML);
 }
