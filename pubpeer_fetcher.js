@@ -69,6 +69,7 @@ function Identifier () {
     return null;
 }
 
+var title = null;
 
 var hostname = window.location.hostname;
 
