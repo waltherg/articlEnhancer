@@ -40,7 +40,8 @@ function get_title_element(hostname){
 
 		// one some PubMed / PMC pages the title <h1> tag is not classified
 		// at least for now, the title is then found in the second <h1> tag
-		title = h1[1];
+    if ( title == null )
+  		title = h1[1];
 	}
 	else if (hostname.indexOf("arxiv.org") != -1) {
 		var h1 = document.getElementsByTagName('h1');
