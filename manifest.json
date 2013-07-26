@@ -4,11 +4,10 @@
     "name": "articlEnhancer",
     "description": "Enrich fulltext and abstract view of articles with data from across the web",
     "version": "0.0.1",
-
     "content_scripts": [
         {
         "matches": ["http://*/*"],
-        "js": ["jquery.js", "pubpeer_fetcher.js"],
+        "js": ["jquery.js", "hosts.js", "pubpeer_fetcher.js"],
         "run_at": "document_end"
         }
     ],

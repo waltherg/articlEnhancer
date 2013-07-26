@@ -1,56 +1,18 @@
-function get_title_element(hostname){
-	var title = null;
-	console.log("get_title_element hostname: "+hostname);
-	
-	if (hostname.indexOf("cell.com") != -1){
-		console.log("get_title_element cell.com detected");
-		title = document.getElementById('top_title');
-		if(!title){
-			title = document.getElementById('article_title');
-		}
-	}
-	else if (hostname.indexOf("peerj.com") != -1){
-		var h1 = document.getElementsByTagName('h1');
-		for(var i=0; i<h1.length; i++){
-				if(h1[i].className == "article-title"){
-						title = h1[i];
-				}
-		}
-	}
-	else if (hostname.indexOf("plos") != -1){
-		title = document.getElementsByTagName('h1')[0];
-	}
-	else if (hostname.indexOf("elifesciences") != -1){
-		var h1 = document.getElementsByTagName('h1');
-		for(var i=0; i<h1.length; i++){
-				if(h1[i].className == "page-title"){
-						console.log(h1[i]);
-						title = h1[i];				
-				}
-		}
-	}
-	else if (hostname.indexOf("ncbi.nlm.nih.gov") != -1){
-		var h1 = document.getElementsByTagName('h1');
-		for(var i=0; i<h1.length; i++){
-				if(h1[i].className == "content-title"){
-						console.log(h1[i]);
-						title = h1[i];				
-				}
-		}
+function get_host(hostname){
+    for(i in ae_hosts["names"])
+        if(hostname.indexOf(ae_hosts["names"][i]) != -1)
+            return ae_hosts["names"][i];
+}
 
-		// one some PubMed / PMC pages the title <h1> tag is not classified
-		// at least for now, the title is then found in the second <h1> tag
-    if ( title == null )
-  		title = h1[1];
-	}
-	else if (hostname.indexOf("arxiv.org") != -1) {
-		var h1 = document.getElementsByTagName('h1');
-		for(var i=0; i<h1.length; i++){
-				if(h1[i].className == "title"){
-						title = h1[i];				
-				}
-		}
-	}
+function get_title_element(hostname){
+    var title = null;
+    var host = get_host(hostname);
+
+    var command = "";
+    for(i in ae_hosts[host])
+        command += ae_hosts[host][i] + "\n";
+
+    title = eval(command);
 
 	return title;
 }
@@ -106,15 +68,8 @@ if(!doi && !pmid){
 
 
 // get title element
-if(doi || pmid || arxiv){
-	var journal = journals[hostname];
-	console.log(JSON.stringify(journals));
-	console.log("journal detected: " + journal);
-	title = eval(titleInJournal[journal]);
-
-	console.log("Title element received from get_title_element: "+title);
-	console.log("Value of title element received: "+title.innerHTML);
-}
+if(doi || pmid || arxiv)
+    title = get_title_element(hostname);
 
 // if doi and title element found, search for PubPeer content and alter title element
 if(title){
