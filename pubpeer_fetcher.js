@@ -17,20 +17,6 @@ function get_title_element(hostname){
 	return title;
 }
 
-var journals = {
-        "http://www.plosone.org": "plos",
-        "http://www.plosbiology.org": "plos",
-        "http://www.plosmedicine.org": "plos",
-        "http://www.plosgenetics.org": "plos",
-        "http://www.ploscompbiol.org": "plos",
-        "http://www.plospathogens.org": "plos",
-        "http://www.plosntds.org": "plos"
-};
-
-var titleInJournal = {
-        "plos": "title = document.getElementsByTagName('h1')[0];"
-};
-
 var doi = null;
 var pmid = null;
 var arxvi = null;
