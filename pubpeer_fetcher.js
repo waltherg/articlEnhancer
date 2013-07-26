@@ -12,7 +12,8 @@ function get_title_element(hostname){
     for(i in ae_hosts[host])
         command += ae_hosts[host][i] + "\n";
 
-    title = eval(command);
+    if(command.length > 0)
+        title = eval(command);
 
 	return title;
 }
