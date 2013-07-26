@@ -95,7 +95,7 @@ if(title){
     $.ajax(address
           ).done(function(data) {
 			  var json = $.parseJSON(data);
-			console.log("json.total_comments: "+json.total_comments);
+			console.log("articlEnhancer: json.total_comments: "+json.total_comments);
 			if(json.total_comments > 0){
 				title.style.border = "thick solid #ff9e29";
 			}
