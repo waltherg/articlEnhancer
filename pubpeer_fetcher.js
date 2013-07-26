@@ -19,7 +19,7 @@ function get_title_element(hostname){
 
 var doi = null;
 var pmid = null;
-var arxvi = null;
+var arxiv = null;
 var title = null;
 
 var hostname = window.location.hostname;
